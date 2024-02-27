@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="incidencias_pdf_report" model="ir.actions.report">
+            <field name="name">Informe Incidencias</field>
+            <field name="model">incidencias.incidencia</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">incidencias.report_incidencias</field>
+            <field name="binding_model_id" ref='incidencias.incidencia'/>
+            <field name="binding_type">report</field>
+            <field name="binding_view_types">kanban</field>
+            <field name="paperformat_id" ref="incidencias.custompaperformat"/>
+            <field name="print_report_name">Informe Incidencias - %s' % (object.name)</field>
+        </record>
+    </data>
+</odoo>

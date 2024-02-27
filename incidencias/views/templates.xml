@@ -1,7 +1,6 @@
 <odoo>
     <data>
-<!--
-        <template id="listing">
+        <template id="report_incidencias">
           <ul>
             <li t-foreach="objects" t-as="object">
               <a t-attf-href="#{ root }/objects/#{ object.id }">
@@ -19,6 +18,5 @@
             </t>
           </dl>
         </template>
--->
     </data>
 </odoo>

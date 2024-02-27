@@ -27,7 +27,9 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'data/zona.xml'
+        'data/zona.xml',
+        'reports/informe_incidencias.xml'
+
     ],
     # only loaded in demonstration mode
     'demo': [
