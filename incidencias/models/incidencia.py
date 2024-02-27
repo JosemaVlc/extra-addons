@@ -28,6 +28,7 @@ class incidencia(models.Model):
     cliente_movil = fields.Char(string='Movil', compute='_compute_client_info')
     cliente_email = fields.Char(string='Email', compute='_compute_client_info')
     cliente_zona_tecnica = fields.Char(string='Zona Tecnica', compute='_compute_client_info')
+    cliente_tecnico_asociado = fields.Char(string="Tecnico Asociado", compute='_compute_client_info')
 
     
     # Relacion contrato [1:N] incidencia
@@ -58,6 +59,7 @@ class incidencia(models.Model):
                 self.cliente_email = incidencia.contrato_id.partner_id.email
                 self.cliente_provincia = state_record.name
                 self.cliente_zona_tecnica = incidencia.contrato_id.zona_id.name
+                self.cliente_tecnico_asociado = incidencia.contrato_id.zona_id.tecnicos_ids.name
             else:
                 self.cliente_nif = ""
                 self.cliente_nombre = ""
@@ -72,6 +74,7 @@ class incidencia(models.Model):
                 self.service_tv = ""
                 self.cliente_nif = ""
                 self.cliente_zona_tecnica = ""
+                self.cliente_tecnico_asociado = ""
 
     def funcion_confirmar(self):
         if self.fase == '0':

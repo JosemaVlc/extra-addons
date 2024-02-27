@@ -181,15 +181,19 @@
             </group>            
           </group>
           <group>
-            <field name="cliente_nif"/>
-            <field name="cliente_nombre"/>
-            <field name="cliente_telefono"/>
-            <field name="cliente_movil"/>
-            <field name="cliente_email"/>
-            <field name="cliente_calle"/>
-            <field name="cliente_ciudad"/>
-            <field name="cliente_provincia"/>
-            <group>
+            <group string="Información del Cliente">
+              <field name="cliente_nif"/>
+              <field name="cliente_nombre"/>
+              <field name="cliente_telefono"/>
+              <field name="cliente_movil"/>
+              <field name="cliente_email"/>
+              <field name="cliente_calle"/>
+              <field name="cliente_ciudad"/>
+              <field name="cliente_provincia"/>
+            </group>
+            <group string="Información del Tecnico">
+              <field name="cliente_zona_tecnica"/>
+              <field name="cliente_tecnico_asociado"/>
               <button name="funcion_cambiar_tecnico" 
                       string="Cambiar Tecnico" 
                       attrs="{'invisible': [('fase', '==', '2')]}"
