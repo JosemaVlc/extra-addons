@@ -110,11 +110,17 @@
                 <div class="card-header">
                   <div class="text-info">
                     <strong>
-                      Cto. <field name="contrato_id"/>
+                      Nº Incidencia <field name="name"/>
                     </strong>
                   </div>
                 </div>
                 <div class="card-body">
+                  <p>
+                    <strong class="text-primary">
+                      Cto. 
+                    </strong>
+                    <field name="contrato_id"/>
+                  </p>
                   <p>
                     <strong class="text-primary">
                       Planificación:  
