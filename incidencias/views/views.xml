@@ -54,7 +54,7 @@
       <field name="arch" type="xml">
         <form>
           <group string="Datos Cliente">
-            <field name="name" string="Nº Contrato"/>
+            <field name="name"/>
             <field name="partner_id" context="{'form_view_ref':'incidencias.partner_form'}" string="Cliente"/>
             <field name="zona_id"/>
           </group>
@@ -194,11 +194,6 @@
             <group string="Información del Tecnico">
               <field name="cliente_zona_tecnica"/>
               <field name="cliente_tecnico_asociado"/>
-              <button name="funcion_cambiar_tecnico" 
-                      string="Cambiar Tecnico" 
-                      attrs="{'invisible': [('fase', '==', '2')]}"
-                      class="oe_edit_only oe_highlight"
-                      type="object"/>
             </group>
           </group>
           <notebook>
@@ -228,9 +223,6 @@
                   <field name="name"/>
                 </tree>
               </field>
-            </page>
-            <page string="Historial">
-              <!--Aqui va el historial de incidencias-->
             </page>
           </notebook>
         </form>

@@ -8,7 +8,7 @@ class contrato(models.Model):
     _name = 'incidencias.contrato'
     _description = 'Contratos'
 
-    name = fields.Char(string = 'NºContrato', size = 6, trim=True)
+    name = fields.Char(string = 'NºContrato', readonly=1)
     #number = fields.Integer(string = 'Zona Tecnica', compute='_compute_zona_tecnica', store=True)
     service_tlf = fields.Boolean(string = 'Tlf')
     service_tv = fields.Boolean(string = 'Tv')
@@ -25,8 +25,7 @@ class contrato(models.Model):
     partner_id = fields.Many2one('res.partner', 'Cliente', domain=[('active','=',True)]) # Devolverá su cliente las incidencias.
 
     _sql_constraints = [
-        ('name_uniq', 'unique(name)', 'El numero de contrato debe ser único'),
-        ('name_length_check', 'CHECK(length(name) = 6)', 'El nº contrato debe tener exactamente 6 caracteres')
+        ('name_uniq', 'unique(name)', 'El numero de contrato debe ser único')
     ]
 
     def codigo_postal_mas_cercano(self, codigos_postales, paises, codigo_postal_referencia, pais_referencia):
@@ -60,6 +59,11 @@ class contrato(models.Model):
             it += 1
 
         return codigo_postal_mas_cercano
+    
+    @api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code('contratos_secuencia')
+        return super(contrato, self).create(vals)
     
     @api.depends('partner_id')
     def _compute_cp(self):

@@ -9,7 +9,7 @@ class incidencia(models.Model):
     _name = 'incidencias.incidencia'
     _description = 'Incidencias'
 
-    name = fields.Char(string = 'NºIncidencia')
+    name = fields.Char(string = 'NºIncidencia', readonly=1)
     fecha_entrada = fields.Datetime(string='Entrada', default=lambda self: fields.Datetime.now(), readonly=True)
     fecha_planificada = fields.Datetime(string = 'Planificación')
     fecha_solucion = fields.Datetime(string = 'Solución', readonly=True)
@@ -32,14 +32,19 @@ class incidencia(models.Model):
 
     
     # Relacion contrato [1:N] incidencia
-    contrato_id = fields.Many2one('incidencias.contrato') # devolverá 1 contrato.
+    contrato_id = fields.Many2one('incidencias.contrato', readonly="True") # devolverá 1 contrato.
     # Relacion anotacion [N:1] incidencia
-    annotations_ids = fields.One2many('incidencias.anotacion', 'name') # devolverá todas las anotaciones.
+    annotations_ids = fields.One2many('incidencias.anotacion', 'incidencia_id') # devolverá todas las anotaciones.
     
 
     _sql_constraints = [
         ('name_uniq', 'unique(name)', 'El numero de contrato debe ser único'),
-    ]
+    ]    
+    
+    @api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code('incidencias_secuencia')
+        return super(incidencia, self).create(vals)
     
     @api.depends('contrato_id')
     def _compute_client_info(self):
@@ -91,7 +96,3 @@ class incidencia(models.Model):
                 futuro_estado = int(self.fase)+1
                 self.write({'fase':str(futuro_estado)})
                 self.fecha_solucion = fields.Datetime.now()
-
-    def funcion_cambiar_tecnico(self):
-        pass
-
