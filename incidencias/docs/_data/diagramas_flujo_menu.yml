@@ -1,0 +1,16 @@
+- label: Diagramas de flujo
+  items:
+    - name: Info General
+      link: /diagramas.flujo
+    - name: Crear Incidencia
+      link: /diagramas_flujo/diagrama-crear-incidencia
+    - name: Confirmar Incidencia
+      link: /diagramas_flujo/diagrama-confirmar-incidencia
+    - name: Agendar Técnico
+      link: /diagramas_flujo/diagrama-agendar-tecnico
+    - name: Información Adicional
+      link: /diagramas_flujo/diagrama-informacion-adicional
+    - name: Solución de Incidencia
+      link: /diagramas_flujo/diagrama-solucion-incidencia
+    - name: Albarán de Consumo
+      link: /diagramas_flujo/diagrama-albaran-consumo

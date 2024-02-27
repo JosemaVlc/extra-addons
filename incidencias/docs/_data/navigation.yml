@@ -1,0 +1,8 @@
+- name: Wireframes
+  link: /wireframes
+- name: Diagrama de Flujo
+  link: /diagramas.flujo
+- name: Diagrama E-R
+  link: /diagrama-entidad-relacion
+- name: Acerca de
+  link: /about

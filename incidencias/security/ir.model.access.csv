@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_incidencias_contrato,incidencias.contrato,model_incidencias_contrato,base.group_user,1,1,1,1
+access_incidencias_incidencia,incidencias.incidencia,model_incidencias_incidencia,base.group_user,1,1,1,1
+access_incidencias_anotacion,incidencias.anotacion,model_incidencias_anotacion,base.group_user,1,1,1,1
+access_incidencias_zona,incidencias.zona,model_incidencias_zona,base.group_user,1,1,1,1

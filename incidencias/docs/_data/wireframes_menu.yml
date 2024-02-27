@@ -1,0 +1,18 @@
+- label: Wireframes
+  items:
+    - name: Info General
+      link: /wireframes
+    - name: Pantalla General de Incidencias
+      link: /wireframes/pantalla-general-incidencias
+    - name: Pantalla Nueva Incidencia
+      link: /wireframes/pantalla-nueva-incidencia
+    - name: Pantalla Confirmación de Incidencia
+      link: /wireframes/pantalla-confirmacion-incidencia
+    - name: Pantalla Asignar Técnico
+      link: /wireframes/pantalla-asignar-tecnico
+    - name: Pantalla Incidencia En Progreso
+      link: /wireframes/pantalla-incidencia-enprogreso
+    - name: Pantalla Incidencia Solucionada
+      link: /wireframes/pantalla-incidencia-solucionada
+    - name: Pantalla Albarán de consumo
+      link: /wireframes/pantalla-albaran-consumo
