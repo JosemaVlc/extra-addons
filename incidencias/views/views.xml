@@ -94,7 +94,9 @@
       <field name="model">incidencias.incidencia</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="contrato_id"/>          
+          <field name="contrato_id"/> 
+          <field name="cliente_tecnico_asociado"/>
+          <field name="fecha_planificada"/>
         </tree>
       </field>
     </record>

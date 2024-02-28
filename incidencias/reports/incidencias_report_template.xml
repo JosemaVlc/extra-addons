@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="incidencias_pdf_report" model="ir.actions.report">
+        <field name="name">Informe Incidencias</field>
+        <field name="model">incidencias.incidencia</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">incidencias.report_incidencia</field>
+        <field name="binding_model_id" ref='model_incidencias_incidencia'/>
+        <field name="binding_type">report</field>
+        <field name="binding_view_types">kanban,list,form</field>
+        <field name="print_report_name">'Informe Incidencias - %s' % (object.name)</field>
+    </record>
+
+    <template id="incidencias.report_incidencia">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="record">
+                    <div>
+                        <p>Incidencia: <t t-esc="record.name"/> / Trabajador: <t t-esc="record.cliente_tecnico_asociado"/> / Fecha y hora: <t t-esc="record.fecha_planificada"/></p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

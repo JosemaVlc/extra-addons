@@ -19,7 +19,7 @@ class contrato(models.Model):
     zona_id = fields.Many2one('incidencias.zona', 'Zona Tecnica', compute = '_compute_zona_tecnica', store = True) # Devolverá su cliente las incidencias.
     
     # Relacion incidencia [N:1] contrato
-    incidencia_ids = fields.One2many('incidencias.incidencia', 'name') # Devolverá todas las incidencias.
+    incidencia_ids = fields.One2many('incidencias.incidencia', 'contrato_id') # Devolverá todas las incidencias.
 
     # Relacion cliente [1:N] contrato
     partner_id = fields.Many2one('res.partner', 'Cliente', domain=[('active','=',True)]) # Devolverá su cliente las incidencias.

@@ -28,7 +28,8 @@
         'views/views.xml',
         'views/templates.xml',
         'data/zona.xml',
-        'reports/informe_incidencias.xml'
+        # reports
+        'reports/incidencias_report_template.xml'
 
     ],
     # only loaded in demonstration mode
