@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="incidencias.categoria_instalaciones" model="ir.module.category">
+            <field name="name">Incidencias</field>
+        </record>
+
+        <record id="incidencias.grupo_encargados" model="res.groups">
+            <field name="name">Encargados de Departamento</field>
+            <field name="category_id" ref="incidencias.categoria_instalaciones"/>
+        </record>
+
+        <record id="incidencias.grupo_tecnico" model="res.groups">
+            <field name="name">Tecnico Integrado</field>
+            <field name="category_id" ref="incidencias.categoria_instalaciones"/>
+        </record>
+
+        <record id="incidencias.grupo_comercial" model="res.groups">
+            <field name="name">Comercial de Ventas</field>
+            <field name="category_id" ref="incidencias.categoria_instalaciones"/>
+        </record>
+        
+        <record id="incidencias.grupo_directivo" model="res.groups">
+            <field name="name">Direcion de Empresa</field>
+            <field name="category_id" ref="incidencias.categoria_instalaciones"/>
+        </record>
+    </data>
+</odoo>

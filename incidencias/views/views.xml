@@ -79,7 +79,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="tecnicos_ids"/>
+          <field name="tecnico_id"/>
           <field name="code"/>
           <field name="pais"/>
         </tree>
@@ -95,8 +95,11 @@
       <field name="arch" type="xml">
         <tree>
           <field name="contrato_id"/> 
+          <field name="cliente_calle"/>
+          <field name="cliente_ciudad"/>
           <field name="cliente_tecnico_asociado"/>
           <field name="fecha_planificada"/>
+          <field name="fase"/>
         </tree>
       </field>
     </record>

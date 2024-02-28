@@ -20,16 +20,20 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'hr'],
 
     # always loaded
     'data': [
+        # seguridad
+        'security/grupos.xml',
         'security/ir.model.access.csv',
+        # vistas
         'views/views.xml',
         'views/templates.xml',
+        # importacion de datos
         'data/zona.xml',
         # reports
-        'reports/incidencias_report_template.xml'
+        'reports/incidencias_report_template.xml'        
 
     ],
     # only loaded in demonstration mode

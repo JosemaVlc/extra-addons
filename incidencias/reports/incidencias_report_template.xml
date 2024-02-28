@@ -13,13 +13,24 @@
     </record>
 
     <template id="incidencias.report_incidencia">
-        <t t-call="web.html_container">
+        <t t-call="web.html_container">                    
             <t t-call="web.external_layout">
-                <t t-foreach="docs" t-as="record">
-                    <div>
-                        <p>Incidencia: <t t-esc="record.name"/> / Trabajador: <t t-esc="record.cliente_tecnico_asociado"/> / Fecha y hora: <t t-esc="record.fecha_planificada"/></p>
-                    </div>
-                </t>
+                <table style="border-collapse: collapse; width: 100%; border: 1px solid;">
+                    <tr style="background-color: LightBlue;">
+                        <th style="border: 1px solid;">Incidencia</th>
+                        <th style="border: 1px solid;">Direccion</th>
+                        <th style="border: 1px solid;">Tecnico</th>
+                        <th style="border: 1px solid;">Fecha y hora</th>
+                    </tr>
+                    <t t-foreach="docs" t-as="record">
+                        <tr style="border: 1px solid;">
+                            <td style="border: 1px solid;"><t t-esc="record.name"/></td> 
+                            <td style="border: 1px solid;"><t t-esc="record.cliente_calle"/> <t t-esc="record.cliente_ciudad"/> <t t-esc="record.cliente_provincia"/></td>
+                            <td style="border: 1px solid;"><t t-esc="record.cliente_tecnico_asociado"/></td>
+                            <td style="border: 1px solid;"><t t-esc="record.fecha_planificada"/></td>
+                        </tr>
+                    </t>
+                </table>
             </t>
         </t>
     </template>
