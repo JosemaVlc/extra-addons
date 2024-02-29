@@ -33,7 +33,7 @@
         # importacion de datos
         'data/zona.xml',
         # reports
-        'reports/incidencias_report_template.xml'        
+        'reports/incidencias_report_template.xml'
 
     ],
     # only loaded in demonstration mode

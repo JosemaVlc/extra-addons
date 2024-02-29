@@ -1,6 +1,5 @@
 <odoo>
-  <data>
-  
+  <data>  
   <!--Vista Cliente desde contrato-->
 
     <record model="ir.ui.view" id="incidencias.partner_form">
@@ -240,7 +239,6 @@
       </field>
     </record>
 
-
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="incidencias.action_contrato_form">
@@ -249,15 +247,11 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- actions opening views on models -->
-
     <record model="ir.actions.act_window" id="incidencias.action_window_incidencia">
       <field name="name">Incidencias</field>
       <field name="res_model">incidencias.incidencia</field>
       <field name="view_mode">kanban,form,tree</field>
     </record>
-
-    <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="incidencias.action_window_zona">
       <field name="name">Zona Tecnica</field>
@@ -265,6 +259,11 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="incidencias.action_window_almacen">
+      <field name="name">Almacen</field>
+      <field name="res_model">incidencias.almacen</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
     <!-- server action to the one above -->
 <!--
@@ -294,10 +293,15 @@
 
     <menuitem name="Incidencias" id="incidencias.menu_1_incidencia" parent="incidencias.menu_1"
               action="incidencias.action_window_incidencia"/>
+
     <menuitem name="Zonas" id="incidencias.menu_1_zona" parent="incidencias.menu_1"
               action="incidencias.action_window_zona"/>
+
     <menuitem name="Contratos" id="incidencias.menu_1_contrato" parent="incidencias.menu_1"
               action="incidencias.action_contrato_form"/>
+
+    <menuitem name="Almacen" id="incidencias.menu_1_almacen" parent="incidencias.menu_1"
+              action="incidencias.action_window_almacen"/>
     <!-- <menuitem name="Server to list" id="incidencias" parent="incidencias.menu_2"
               action="incidencias.action_server"/> -->
   </data>
