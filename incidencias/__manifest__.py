@@ -22,6 +22,11 @@
     # any module necessary for this one to work correctly
     'depends': ['base', 'hr'],
 
+    'external_dependencies': {
+        'python':['geopy']
+    },
+    # revisar requiredment para revisar e instalar dependencias
+
     # always loaded
     'data': [
         # seguridad
@@ -31,7 +36,10 @@
         'views/views.xml',
         'views/templates.xml',
         # importacion de datos
+        'data/autoincrementales.xml',
         'data/zona.xml',
+        'data/almacen.xml',
+        'data/material.xml',
         # reports
         'reports/incidencias_report_template.xml'
 

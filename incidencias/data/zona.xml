@@ -23,23 +23,5 @@
       <field name="code">46014</field>
       <field name="pais">68</field>
     </record>
-
-    <record id="secuenciaIncidencia" model="ir.sequence">
-      <field name="name">Secuencia Nº Incidencia</field>
-      <field name="code">incidencias_secuencia</field>
-      <field name="padding">8</field>
-      <field name="number_increment">1</field>
-      <field name="number_next_actual">1</field>
-      <field name="implementation">standard</field>
-    </record>
-
-    <record id="secuenciaContrato" model="ir.sequence">
-      <field name="name">Secuencia Nº Contrato</field>
-      <field name="code">contratos_secuencia</field>
-      <field name="padding">8</field>
-      <field name="number_increment">1</field>
-      <field name="number_next_actual">1</field>
-      <field name="implementation">standard</field>
-    </record>
   </data>
 </odoo>

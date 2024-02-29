@@ -12,3 +12,9 @@ class incidencia(models.Model):
 
     # Relacion material [N:1] almacen
     materiales_ids = fields.One2many('incidencias.material', 'almacen_id') # Devolverá todos los materiales.
+    
+    _sql_constraints = [
+        ('name_uniq', 'unique(name)', 'El nombre de almacen debe ser único'),
+    ]
+
+    # Poner en data almacenes y materiales

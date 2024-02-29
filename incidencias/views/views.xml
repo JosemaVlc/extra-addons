@@ -167,27 +167,27 @@
             <button name="funcion_confirmar" 
                     string="Confirmar" 
                     class="oe_highlight"
-                    attrs="{'invisible': [('fase', '!=', '0')]}"
+                    attrs="{'invisible': [('fase', '!=', 'ENT')]}"
                     confirm="Atención: Si confirmas la incidencia entrará a la planificación del tecnico ¿Deseas Continuar?"
                     type="object"/>
             <button name="funcion_confirmar" 
                     string="Solucionar" 
                     class="oe_highlight"
-                    attrs="{'invisible': [('fase', '!=', '1')]}"
+                    attrs="{'invisible': [('fase', '!=', 'PRO')]}"
                     confirm="Atención: Si solucionas la incidencia saldrá de la planificación del tecnico ¿Deseas Continuar?"
                     type="object"/>
-            <field name="fase" widget="statusbar" statusbar_visible="0,1,2"/>          
+            <field name="fase" widget="statusbar" statusbar_visible="ENT,PRO,SOL"/>          
           </header>
           <group string="Información básica">
             <group>
               <field name="contrato_id"
-                     attrs="{'readonly': [('fase', '!=', '0')]}"/>
+                     attrs="{'readonly': [('fase', '!=', 'ENT')]}"/>
             </group>
             <group>
               <field name="fecha_entrada"/>   
               <field name="fecha_planificada"
-                     attrs="{'readonly': [('fase', '!=', '0')]}"/>  
-              <field name="fecha_solucion" attrs="{'invisible': [('fase', '!=', '2')]}"/>      
+                     attrs="{'readonly': [('fase', '!=', 'ENT')]}"/>  
+              <field name="fecha_solucion" attrs="{'invisible': [('fase', '!=', 'SOL')]}"/>      
             </group>            
           </group>
           <group>
@@ -221,8 +221,8 @@
               </group>
               <group string="Info:">
                 <field name="incidence_text"
-                     attrs="{'readonly': [('fase', '!=', '0')]}"/>
-                <field name="solution_text" attrs="{'invisible': [('fase', '==', '0')], 'readonly': [('fase', '!=', '1')], }"/>
+                     attrs="{'readonly': [('fase', '!=', 'ENT')]}"/>
+                <field name="solution_text" attrs="{'invisible': [('fase', '==', 'ENT')], 'readonly': [('fase', '!=', 'PRO')], }"/>
               </group>
             </page>
             <page string="Anotaciones">

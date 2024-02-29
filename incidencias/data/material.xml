@@ -1,0 +1,21 @@
+<odoo>
+  <data noupdate='1'>
+    <record id="material_1" model="incidencias.material">
+      <field name="name">Cable UTP Cat.5</field>
+      <field name="code">UTP001</field>
+      <field name="description">Caja de 305m cable de red UTP categoria 5e</field>
+      <field name="unit">50</field>
+      <field name="price">40</field>
+    </record>
+
+    <record id="material_2" model="incidencias.material">
+      <field name="name">Almacen Al-landalus</field>
+      <field name="location">Granada</field>
+    </record>
+
+    <record id="material_3" model="incidencias.material">
+      <field name="name">Almacen CR7</field>
+      <field name="location">Madrid</field>
+    </record>
+  </data>
+</odoo>
