@@ -5,7 +5,16 @@
       <field name="code">UTP305</field>
       <field name="description">Caja de 305m cable de red UTP categoria 5e</field>
       <field name="unit">50</field>
-      <field name="price">40</field>
+      <field name="price">43.20</field>
+      <field name="almacen_id" ref="incidencias.almacen_levante"/>
+    </record>
+
+    <record id="incidencias.material_ConectorRJ45" model="incidencias.material">
+      <field name="name">Conector RJ45</field>
+      <field name="code">UTP305</field>
+      <field name="description">Conector RJ45 para cable UTP</field>
+      <field name="unit">500</field>
+      <field name="price">0.09</field>
       <field name="almacen_id" ref="incidencias.almacen_levante"/>
     </record>
 
@@ -21,9 +30,36 @@
     <record id="incidencias.material_rosetaFibra" model="incidencias.material">
       <field name="name">Roseta Fibra</field>
       <field name="code">INS0074-PTV</field>
-      <field name="description">Punto de terminación con conector SC</field>
-      <field name="unit">160</field>
+      <field name="description">Punto de terminación para conector SC-APC</field>
+      <field name="unit">500</field>
       <field name="price">1.57</field>
+      <field name="almacen_id" ref="incidencias.almacen_levante"/>
+    </record>
+
+    <record id="incidencias.material_pigtail" model="incidencias.material">
+      <field name="name">Pigtail SC-APC 1.5m 0.9mm</field>
+      <field name="code">CBL0074PTV</field>
+      <field name="description">Latiguillo de fibra preconectorizado con conector SC-APC</field>
+      <field name="unit">500</field>
+      <field name="price">0.79</field>
+      <field name="almacen_id" ref="incidencias.almacen_levante"/>
+    </record>
+
+    <record id="incidencias.material_tubitosEmpalme" model="incidencias.material">
+      <field name="name">Tubitos Empalme Fibra</field>
+      <field name="code">INS0040</field>
+      <field name="description">Tubitos termoretractiles con acero para empalmes</field>
+      <field name="unit">100</field>
+      <field name="price">0.19</field>
+      <field name="almacen_id" ref="incidencias.almacen_levante"/>
+    </record>
+
+    <record id="incidencias.material_bridaMetalica" model="incidencias.material">
+      <field name="name">Brida Metalica Aislada</field>
+      <field name="code">44200</field>
+      <field name="description">Bridas metalicas aisladas</field>
+      <field name="unit">500</field>
+      <field name="price">0.49</field>
       <field name="almacen_id" ref="incidencias.almacen_levante"/>
     </record>
   </data>
