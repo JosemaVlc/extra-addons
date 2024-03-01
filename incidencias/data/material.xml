@@ -3,9 +3,9 @@
     <record id="incidencias.material_cableUTP" model="incidencias.material">
       <field name="name">Cable UTP Cat.5e</field>
       <field name="code">UTP305</field>
-      <field name="description">Caja de 305m cable de red UTP categoria 5e</field>
-      <field name="unit">50</field>
-      <field name="price">43.20</field>
+      <field name="description">Cable de red UTP categoria 5e</field>
+      <field name="unit">1500</field>
+      <field name="price">0.14</field>
       <field name="almacen_id" ref="incidencias.almacen_levante"/>
     </record>
 

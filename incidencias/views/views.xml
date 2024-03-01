@@ -240,22 +240,28 @@
     </record>
 
     <!--Vista Albaranes-->
+
     <record model="ir.ui.view" id="incidencias.albaran_window_form">
       <field name="name">incidencias.albaran</field>
       <field name="model">incidencias.albaran</field>
       <field name="arch" type="xml">
         <form>
-          <field name="incidencia_id"/> 
-          <field name="lineas_ids">
-            <tree editable='top'>
-              <field name="material_id" string="Producto"/>
-              <field name="quantity" string="Cantidad"/>
-            </tree>
-          </field>
+          <group>
+            <field name="incidencia_id"/> 
+            <field name="lineas_ids">
+              <tree editable='top'>
+                <field name="code"/>
+                <field name="material_id"/>
+                <field name="unit_price"/>
+                <field name="quantity"/>
+                <field name="price"/>              
+              </tree>
+            </field>
+            <field name="total_price"/>
+          </group>
         </form>
       </field>
     </record>
-
 
     <!-- actions opening views on models -->
 
@@ -324,11 +330,12 @@
     <menuitem name="Contratos" id="incidencias.menu_1_contrato" parent="incidencias.menu_1"
               action="incidencias.action_contrato_form"/>
 
-    <menuitem name="Almacen" id="incidencias.menu_1_almacen" parent="incidencias.menu_1"
+    <menuitem name="Almacén" id="incidencias.menu_1_almacen" parent="incidencias.menu_1"
               action="incidencias.action_window_almacen"/>
 
-    <menuitem name="Almacen" id="incidencias.menu_1_albaran" parent="incidencias.menu_1"
+    <menuitem name="Albarán" id="incidencias.menu_1_albaran" parent="incidencias.menu_1"
               action="incidencias.action_window_albaran"/>
+
     <!-- <menuitem name="Server to list" id="incidencias" parent="incidencias.menu_2"
               action="incidencias.action_server"/> -->
   </data>
