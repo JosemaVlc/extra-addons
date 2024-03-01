@@ -10,7 +10,7 @@ class zona(models.Model):
 
     tecnico_id = fields.Many2one('hr.employee', string='Tecnico Responsable de Zona', domain=[('department_id.name', '=', 'Tecnico')])
     pais = fields.Many2one('res.country', string='Pais')
-    contrato_ids = fields.One2many('incidencias.contrato', 'zona_id')
+    contrato_ids = fields.One2many('incidencias.contrato', 'zona_id', invisible=True, readonly=True)
 
     _sql_constraints = [
         ('name_uniq', 'unique(name)', 'El nombre de la zona debe ser único'),

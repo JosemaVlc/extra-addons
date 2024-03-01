@@ -12,7 +12,7 @@ class incidencia(models.Model):
     code = fields.Char(related="material_id.code", string="Codigo")
     unit_price = fields.Float(related="material_id.price", string="Precio Unitario")
     quantity = fields.Integer(string='Cantidad')
-    price = fields.Float(compute="_compute_price")
+    price = fields.Float(compute="_compute_price", string="Precio")
 
     # Relacion albaran [1:N] linea
     albaran_id = fields.Many2one('incidencias.albaran', readonly=True) # Devolverá el albarán asociado.

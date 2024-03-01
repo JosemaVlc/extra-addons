@@ -7,9 +7,9 @@ class incidencia(models.Model):
     _name = 'incidencias.albaran'
     _description = 'Albaran'
     
-    name= fields.Char(string="Nº Albaran", readonly=1, string="Incidencia")
+    name= fields.Char(string="Nº Albaran", readonly=1)
 
-    incidencia_id = fields.Many2one('incidencias.incidencia', compute='_compute_albaran', inverse='stage_inverse')
+    incidencia_id = fields.Many2one('incidencias.incidencia', compute='_compute_albaran', inverse='incidencia_inverse', string='Incidencia Asociada', required=True)
     # Relacion lineas [N:1] albaran
     lineas_ids = fields.One2many('incidencias.linea', 'albaran_id') #Devolverá todas las lineas.
     incidencias_ids = fields.One2many('incidencias.incidencia', 'albaran_id', invisible=True, readonly=True)
@@ -20,12 +20,10 @@ class incidencia(models.Model):
         if len(self.incidencias_ids) > 0:
             self.incidencia_id = self.incidencias_ids[0]
 
-    def stage_inverse(self):
+    def incidencia_inverse(self):
         if len(self.incidencias_ids) > 0:
-            # delete previous reference
             incidencia = self.env['incidencias.incidencia'].browse(self.incidencias_ids[0].id)
             incidencia.albaran_id = False
-        # set new reference
         self.incidencia_id.albaran_id = self
 
     _sql_constraints = [
