@@ -1,16 +1,16 @@
 <odoo>
   <data noupdate='1'>
-    <record id="almacen_1" model="incidencias.almacen">
+    <record id="incidencias.almacen_levante" model="incidencias.almacen">
       <field name="name">Almacen de Levante</field>
       <field name="location">Valencia</field>
     </record>
 
-    <record id="almacen_2" model="incidencias.almacen">
-      <field name="name">Almacen Al-landalus</field>
+    <record id="incidencias.almacen_alandalus" model="incidencias.almacen">
+      <field name="name">Almacen Al-Andalus</field>
       <field name="location">Granada</field>
     </record>
 
-    <record id="almacen_3" model="incidencias.almacen">
+    <record id="incidencias.almacen_cr7" model="incidencias.almacen">
       <field name="name">Almacen CR7</field>
       <field name="location">Madrid</field>
     </record>
