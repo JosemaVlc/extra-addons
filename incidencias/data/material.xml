@@ -11,8 +11,8 @@
 
     <record id="incidencias.material_ConectorRJ45" model="incidencias.material">
       <field name="name">Conector RJ45</field>
-      <field name="code">UTP305</field>
-      <field name="description">Conector RJ45 para cable UTP</field>
+      <field name="code">RJ45UTP</field>
+      <field name="description">Conector RJ45 para cable UTP Cat.5e</field>
       <field name="unit">500</field>
       <field name="price">0.09</field>
       <field name="almacen_id" ref="incidencias.almacen_levante"/>
