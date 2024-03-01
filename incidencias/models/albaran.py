@@ -9,10 +9,10 @@ class incidencia(models.Model):
     
     name= fields.Char(string="Nº Albaran", readonly=1)
 
+    incidencia_id = fields.Many2one('incidencias.incidencia', compute='compute_albaran', inverse='stage_inverse')
     # Relacion lineas [N:1] albaran
     lineas_ids = fields.One2many('incidencias.linea', 'albaran_id') #Devolverá todas las lineas.
-    incidencia_id = fields.Many2one('incidencias.incidencia', compute='compute_albaran', inverse='stage_inverse')
-    incidencias_ids = fields.One2many('incidencias.incidencia', 'albaran_id')
+    incidencias_ids = fields.One2many('incidencias.incidencia', 'albaran_id', invisible=True, readonly=True)
 
     @api.depends('incidencias_ids')
     def compute_albaran(self):
