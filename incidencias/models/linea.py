@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class incidencia(models.Model):
@@ -25,3 +26,16 @@ class incidencia(models.Model):
                 record.price = self.unit_price * self.quantity
             else:
                 record.price = 0.0
+
+    @api.onchange('material_id', 'quantity')
+    def _onchange_avalible_units(self):
+        for record in self:
+            if record.quantity > record.material_id.unit:
+                record.quantity = 0
+                raise ValidationError("¡No es posible consumir más unidades de las existentes")
+    
+        # Restricción SQL única para asegurar que solo haya una línea por material en un albarán
+    _sql_constraints = [
+        ('unique_material_in_albaran', 'unique(albaran_id, material_id)', 'No es posible tener dos lineas con el mismo producto.'),
+    ]
+
