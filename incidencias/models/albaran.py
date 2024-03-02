@@ -21,10 +21,20 @@ class incidencia(models.Model):
         ('name_uniq', 'unique(name)', 'El numero de albaran debe ser único'),
     ]
 
+    def _subtract_material_units(self):
+        # Método para restar unidades de los materiales asociados al albarán
+        for linea in self.lineas_ids:
+            material = linea.material_id
+            if material:
+                material.write({'unit': material.unit - linea.quantity})
+
     @api.model
     def create(self, vals):
+        # Al crear un albarán, llama al método para restar unidades de los materiales
         vals['name'] = self.env['ir.sequence'].next_by_code('albaranes_secuencia')
-        return super(incidencia, self).create(vals)
+        albaran = super(incidencia, self).create(vals)
+        albaran._subtract_material_units()
+        return albaran
     
     @api.onchange('warehouse_id')
     def _onchange_warehouse(self):
