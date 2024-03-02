@@ -6,7 +6,7 @@
       <field name="description">Cable de red UTP categoria 5e</field>
       <field name="unit">1500</field>
       <field name="price">0.14</field>
-      <field name="almacen_id" ref="incidencias.almacen_levante"/>
+      <field name="warehouse_id" ref="incidencias.almacen_levante"/>
     </record>
 
     <record id="incidencias.material_ConectorRJ45" model="incidencias.material">
@@ -15,7 +15,7 @@
       <field name="description">Conector RJ45 para cable UTP Cat.5e</field>
       <field name="unit">500</field>
       <field name="price">0.09</field>
-      <field name="almacen_id" ref="incidencias.almacen_levante"/>
+      <field name="warehouse_id" ref="incidencias.almacen_levante"/>
     </record>
 
     <record id="incidencias.material_cableFibra" model="incidencias.material">
@@ -24,7 +24,7 @@
       <field name="description">Manguera de fibra para instalacion exterior/interior</field>
       <field name="unit">10000</field>
       <field name="price">0.15</field>
-      <field name="almacen_id" ref="incidencias.almacen_levante"/>
+      <field name="warehouse_id" ref="incidencias.almacen_levante"/>
     </record>
 
     <record id="incidencias.material_rosetaFibra" model="incidencias.material">
@@ -33,7 +33,7 @@
       <field name="description">Punto de terminación para conector SC-APC</field>
       <field name="unit">500</field>
       <field name="price">1.57</field>
-      <field name="almacen_id" ref="incidencias.almacen_levante"/>
+      <field name="warehouse_id" ref="incidencias.almacen_levante"/>
     </record>
 
     <record id="incidencias.material_pigtail" model="incidencias.material">
@@ -42,7 +42,7 @@
       <field name="description">Latiguillo de fibra preconectorizado con conector SC-APC</field>
       <field name="unit">500</field>
       <field name="price">0.79</field>
-      <field name="almacen_id" ref="incidencias.almacen_levante"/>
+      <field name="warehouse_id" ref="incidencias.almacen_levante"/>
     </record>
 
     <record id="incidencias.material_tubitosEmpalme" model="incidencias.material">
@@ -51,7 +51,7 @@
       <field name="description">Tubitos termoretractiles con acero para empalmes</field>
       <field name="unit">100</field>
       <field name="price">0.19</field>
-      <field name="almacen_id" ref="incidencias.almacen_levante"/>
+      <field name="warehouse_id" ref="incidencias.almacen_levante"/>
     </record>
 
     <record id="incidencias.material_bridaMetalica" model="incidencias.material">
@@ -60,7 +60,7 @@
       <field name="description">Bridas metalicas aisladas</field>
       <field name="unit">500</field>
       <field name="price">0.49</field>
-      <field name="almacen_id" ref="incidencias.almacen_levante"/>
+      <field name="warehouse_id" ref="incidencias.almacen_levante"/>
     </record>
 
     <record id="incidencias.material_ONT" model="incidencias.material">
@@ -69,7 +69,7 @@
       <field name="description">ONT de tres servicio</field>
       <field name="unit">100</field>
       <field name="price">102.79</field>
-      <field name="almacen_id" ref="incidencias.almacen_levante"/>
+      <field name="warehouse_id" ref="incidencias.almacen_levante"/>
     </record>
   </data>
 </odoo>

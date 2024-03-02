@@ -7,24 +7,15 @@ class incidencia(models.Model):
     _name = 'incidencias.albaran'
     _description = 'Albaran'
     
+    date = fields.Date(string = 'Fecha', default=lambda self: fields.Datetime.now(), readonly=1)
     name= fields.Char(string="Nº Albaran", readonly=1)
-
-    incidencia_id = fields.Many2one('incidencias.incidencia', compute='_compute_albaran', inverse='incidencia_inverse', string='Incidencia Asociada', required=True)
+    incidencia_id = fields.Many2one('incidencias.incidencia', string='Incidencia Asociada', required=True)
+    warehouse_id = fields.Many2one('incidencias.almacen', string='Almacen', default=1)
+    
     # Relacion lineas [N:1] albaran
-    lineas_ids = fields.One2many('incidencias.linea', 'albaran_id') #Devolverá todas las lineas.
-    incidencias_ids = fields.One2many('incidencias.incidencia', 'albaran_id', invisible=True, readonly=True)
-    total_price = fields.Float(compute='_compute_total', readonly=True, string="Total") 
+    lineas_ids = fields.One2many('incidencias.linea', 'albaran_id', required=True) #Devolverá todas las lineas.
 
-    @api.depends('incidencias_ids')
-    def _compute_albaran(self):
-        if len(self.incidencias_ids) > 0:
-            self.incidencia_id = self.incidencias_ids[0]
-
-    def incidencia_inverse(self):
-        if len(self.incidencias_ids) > 0:
-            incidencia = self.env['incidencias.incidencia'].browse(self.incidencias_ids[0].id)
-            incidencia.albaran_id = False
-        self.incidencia_id.albaran_id = self
+    total_price = fields.Float(compute='_compute_total', readonly=True, string="Total")
 
     _sql_constraints = [
         ('name_uniq', 'unique(name)', 'El numero de albaran debe ser único'),
@@ -34,6 +25,11 @@ class incidencia(models.Model):
     def create(self, vals):
         vals['name'] = self.env['ir.sequence'].next_by_code('albaranes_secuencia')
         return super(incidencia, self).create(vals)
+    
+    @api.onchange('warehouse_id')
+    def _onchange_warehouse(self):
+        for record in self:
+            record.lineas_ids.unlink()
     
     @api.depends('lineas_ids.price')
     def _compute_total(self):

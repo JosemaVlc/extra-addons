@@ -8,19 +8,20 @@ class incidencia(models.Model):
     _description = 'Linea'
 
     # Relacion material [1:N] linea
-    material_id = fields.Many2one('incidencias.material', string='Producto') # Devolverá el material asociado.
+    material_id = fields.Many2one('incidencias.material', string='Producto', domain="[('warehouse_id', '=', warehouse_associated_id)]" , required=True) # Devolverá el material asociado.    
     code = fields.Char(related="material_id.code", string="Codigo")
     unit_price = fields.Float(related="material_id.price", string="Precio Unitario")
-    quantity = fields.Integer(string='Cantidad')
+    quantity = fields.Integer(string='Cantidad', required=True)
     price = fields.Float(compute="_compute_price", string="Precio")
 
     # Relacion albaran [1:N] linea
     albaran_id = fields.Many2one('incidencias.albaran', readonly=True) # Devolverá el albarán asociado.
+    warehouse_associated_id = fields.Many2one(related='albaran_id.warehouse_id', string='Almacen')
 
-    @api.depends('material_id', 'quantity', 'quantity')
+    @api.depends('material_id', 'quantity', 'unit_price')
     def _compute_price(self):
         for record in self:
             if (record.material_id and record.unit_price and record.quantity):
-                self.price = self.unit_price * self.quantity
+                record.price = self.unit_price * self.quantity
             else:
-                self.price = 0.0
+                record.price = 0.0

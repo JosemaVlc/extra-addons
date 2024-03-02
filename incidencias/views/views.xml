@@ -180,6 +180,7 @@
           </header>
           <group string="Información básica">
             <group>
+              <field name="name"/>
               <field name="contrato_id"
                      attrs="{'readonly': [('fase', '!=', 'ENT')]}"/>
             </group>
@@ -248,10 +249,13 @@
       <field name="arch" type="xml">
         <form>
           <group>
-            <field name="incidencia_id"/> 
+            <field name="date"/>
+            <field name="warehouse_id"/> 
+            <field name="incidencia_id"/>
             <field name="lineas_ids">
               <tree editable='top'>
                 <field name="code"/>
+                <field name="warehouse_associated_id"/>
                 <field name="material_id"/>
                 <field name="unit_price"/>
                 <field name="quantity"/>
@@ -331,10 +335,10 @@
     <menuitem name="Contratos" id="incidencias.menu_1_contrato" parent="incidencias.menu_1"
               action="incidencias.action_contrato_form"/>
 
-    <menuitem name="Almacén" id="incidencias.menu_1_almacen" parent="incidencias.menu_1"
+    <menuitem name="Almacenes" id="incidencias.menu_1_almacen" parent="incidencias.menu_1"
               action="incidencias.action_window_almacen"/>
 
-    <menuitem name="Albarán" id="incidencias.menu_1_albaran" parent="incidencias.menu_1"
+    <menuitem name="Albaranes" id="incidencias.menu_1_albaran" parent="incidencias.menu_1"
               action="incidencias.action_window_albaran"/>
 
     <!-- <menuitem name="Server to list" id="incidencias" parent="incidencias.menu_2"

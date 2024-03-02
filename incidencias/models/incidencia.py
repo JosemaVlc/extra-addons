@@ -37,7 +37,7 @@ class incidencia(models.Model):
     # Relacion anotacion [N:1] incidencia
     annotations_ids = fields.One2many('incidencias.anotacion', 'incidencia_id') # devolverá todas las anotaciones.
     # Relación albaran [1:1] incidencia
-    albaran_id = fields.Many2one('incidencias.albaran', string='Albaran de consumo')
+    albaran_id = fields.One2many('incidencias.albaran', 'incidencia_id', string='Albaran de consumo')
 
     _sql_constraints = [
         ('name_uniq', 'unique(name)', 'El numero de contrato debe ser único'),
