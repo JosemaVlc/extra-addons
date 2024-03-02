@@ -23,7 +23,7 @@ class incidencia(models.Model):
     def _compute_price(self):
         for record in self:
             if (record.material_id and record.unit_price and record.quantity):
-                record.price = self.unit_price * self.quantity
+                record.price = record.unit_price * record.quantity
             else:
                 record.price = 0.0
 

@@ -19,5 +19,5 @@ class incidencia(models.Model):
     lineas_ids = fields.One2many('incidencias.linea', 'material_id') # Devolverá todas las lineas con dicho material.  
 
     _sql_constraints = [
-        ('name_uniq', 'unique(code)', 'El codigo de producto debe ser único'),
+        ('name_uniq', 'unique(code,warehouse_id)', 'El codigo de producto debe ser único'),
     ]
