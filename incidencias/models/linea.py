@@ -33,8 +33,14 @@ class incidencia(models.Model):
             if record.quantity > record.material_id.unit:
                 record.quantity = 0
                 raise ValidationError("¡No es posible consumir más unidades de las existentes")
+            
+    @api.constrains('material_id')
+    def _check_warehouse(self):
+        for record in self:
+            if record.material_id.warehouse_id != record.warehouse_associated_id:
+                raise ValidationError("Uno de los materiales seleccionados no pertenece al almacén asociado al albarán.")
     
-        # Restricción SQL única para asegurar que solo haya una línea por material en un albarán
+    # Restricción SQL única para asegurar que solo haya una línea por material en un albarán
     _sql_constraints = [
         ('unique_material_in_albaran', 'unique(albaran_id, material_id)', 'No es posible tener dos lineas con el mismo producto.'),
     ]

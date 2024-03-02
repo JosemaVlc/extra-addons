@@ -255,7 +255,7 @@
             <field name="lineas_ids">
               <tree editable='top'>
                 <field name="code"/>
-                <field name="warehouse_associated_id"/>
+                <field name="warehouse_associated_id" invisible="1"/>
                 <field name="material_id"/>
                 <field name="unit_price"/>
                 <field name="quantity"/>
